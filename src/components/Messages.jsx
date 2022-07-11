@@ -3,8 +3,6 @@ import React from "react";
 export default function Messages({ token, post }) {
   const messageList = post.messages;
 
-  console.log(messageList);
-
   function displayMessageList() {
     if (messageList.length > 0) {
       messageList.map((message) => {
@@ -13,16 +11,21 @@ export default function Messages({ token, post }) {
     } else {
       return <li>No messages</li>;
     }
-    console.log(messageList);
   }
 
   return (
     <div>
-      Messages:
+      <h4>
+        <u>Messages Received:</u>
+      </h4>
       <ul>
         {messageList.length > 0 ? (
           messageList.map((message) => {
-            return <li>{message.content}</li>;
+            return (
+              <li>
+                {message.content} from {message.fromUser.username}
+              </li>
+            );
           })
         ) : (
           <li>No messages</li>

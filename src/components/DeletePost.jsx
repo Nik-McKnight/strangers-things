@@ -23,5 +23,4 @@ function removeFromPostList(post, postList, setPostList) {
   const index = postList.indexOf(post);
   newList.splice(index, 1);
   setPostList(newList);
-  console.log(postList);
 }

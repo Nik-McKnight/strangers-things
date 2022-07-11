@@ -8,18 +8,23 @@ export default function SendMessage({ token, post }) {
   return (
     <div>
       <form
+        class="message"
         onSubmit={async (e) => {
           e.preventDefault();
 
           const result = await sendMessage(token, message, id);
           //   const currentMessage = await result.json();
-          //   console.log("result of message:", result);
           if (result.success) {
-            alert(result);
+            alert("Message has been sent!");
+          } else {
+            alert("Please log in to send a message.");
           }
           return result;
         }}
       >
+        <h4>
+          <u>Message Seller?</u>
+        </h4>
         <input
           placeholder="Message"
           value={message}

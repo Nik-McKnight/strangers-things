@@ -20,6 +20,16 @@ html {
     background-color: #7395ae;
     margin: 20px;
     padding: 20px;
+    border: 1px solid black
+}
+
+ul {
+    padding: 5px 0 10px 10px
+}
+
+.post > h3 {
+    text-align: center;
+    text-underline-offset: 5px;
 }
 
 .button {
@@ -36,20 +46,64 @@ nav {
     color:navy
 }
 
-.createPost {
-    padding:5px;
+.createPost{
+    padding: 5px 5px 10px 10px;    background-color: #7395ae;
+    display: block;
+    justify-content: space-around;
+    border: 1px solid black;
+    border-top: none;
+}
+
+.editPost {
+    padding: 5px 5px 10px 0px;
     background-color: #7395ae;
-    display: flex;
-    justify-content: space-around;}
+    display: block;
+    justify-content: space-around;
+}
+
+.createPost> *, .editPost > *{
+    padding-left: 5px;
+    width: 15%;
+}
+
+.register,
+.login {
+    padding: 5px 5px 5px 10px;
+    background-color: #7395ae;
+    display: block;
+    border: 1px solid black
+}
+
+.register > *, .login > * {
+    width: 15%;
+    margin-right: 5px;
+}
+
 
 .searchBar{
-    padding: 5px 5px 0 5px;
+    padding: 5px 5px 10px 10px;
     background-color: #7395ae;
     display:flex;
+    flex-wrap: wrap;
+    border: 1px solid black;
+}
+
+h4 {
+    flex-basis: 100%;
+    margin-bottom: 10px;
+    text-underline-offset: 5px;
+}
+
+.searchInput {
+    width: 40%;
+    margin-right: 5px;
+}
+
+.message > input {
+    width: 100%;
+    margin-bottom: 5px;
 }
 
 input {
-}
-
-button {
+    padding-left: 5px;
 }

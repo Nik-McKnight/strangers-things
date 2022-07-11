@@ -21,9 +21,6 @@ export default function NavBar() {
         <Link class="link" to="/logout">
           Log Out
         </Link>
-        <Link class="link" to="/createpost">
-          Create Post
-        </Link>
       </nav>
     </div>
   );

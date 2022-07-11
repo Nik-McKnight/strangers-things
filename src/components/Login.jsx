@@ -14,10 +14,10 @@ export default function Login({ setToken }) {
   return (
     <div>
       <form
+        class="login"
         onSubmit={async (e) => {
           e.preventDefault();
           const result = await loginUser(userName, password);
-          // console.log(result.data);
           if (result.success === false) {
             alert(result.error.message);
           } else {
@@ -26,7 +26,6 @@ export default function Login({ setToken }) {
             alert(result.data.message);
             navigate("/");
           }
-          // console.log(result.data.token);
         }}
       >
         <input

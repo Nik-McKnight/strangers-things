@@ -6,15 +6,10 @@ export default function LogOut({
   token,
   currentUser,
 }) {
-  // return <div onClick={() =>{
-  //   console.log("logging out");
-  //   localStorage.setItem("token", "")}>Log Out</div>
-
   return (
     <form
       onSubmit={(e) => {
         e.preventDefault();
-        console.log("logging out");
         localStorage.setItem("token", "");
         const tempUser = {};
         const tempToken = "";

@@ -1,6 +1,6 @@
 import { fetchAllPosts } from "api/post";
 import { fetchMe } from "api/user";
-import { Post, CreatePost, SearchBar } from "components";
+import { Post, CreatePost } from "components";
 import React, { useEffect, useState } from "react";
 
 export default function Posts({ token, postList, setPostList }) {
@@ -10,17 +10,16 @@ export default function Posts({ token, postList, setPostList }) {
   const [filteredPosts, setFilteredPosts] = useState([]);
   const [postsToDisplay, setPostsToDisplay] = useState([]);
 
-  const getAllPosts = async () => {
-    const results = await fetchAllPosts(token);
-    setPostList(results.data.posts);
-    setPostsToDisplay(searchTerm.length > 0 ? filteredPosts : postList);
-    //setPostsToDisplay(postList);
-    console.log(postsToDisplay);
-  };
-
   useEffect(() => {
+    const getAllPosts = async () => {
+      const results = await fetchAllPosts(token);
+      if (results.success) {
+        setPostList(results.data.posts);
+        setPostsToDisplay(searchTerm.length > 0 ? filteredPosts : postList);
+        //setPostsToDisplay(postList);
+      }
+    };
     getAllPosts();
-    console.log("running");
   }, [filteredPosts]);
 
   function checkPost(post, text) {
@@ -46,9 +45,7 @@ export default function Posts({ token, postList, setPostList }) {
 
   function filterPosts(postList, searchTerm) {
     const result = postList.filter((post) => checkPost(post, searchTerm));
-    console.log("SearchResult: ", result);
     setFilteredPosts(result);
-    console.log("filtered: ", filteredPosts);
   }
 
   return (
@@ -66,7 +63,11 @@ export default function Posts({ token, postList, setPostList }) {
           filterPosts(postList, searchTerm);
         }}
       >
+        <h4>
+          <u>Search Posts</u>
+        </h4>
         <input
+          class="searchInput"
           placeholder="Search"
           value={searchTerm}
           required={false}
