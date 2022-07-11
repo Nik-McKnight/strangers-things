@@ -5,13 +5,25 @@ export default function NavBar() {
   return (
     <div>
       <nav>
-        <Link to="/">Posts</Link>
+        <Link class="link" to="/">
+          Posts
+        </Link>
         {/* <Link to="/post">Post</Link> */}
-        <Link to="/profile">Profile</Link>
-        <Link to="/logout">Log Out</Link>
-        <Link to="/register">Register</Link>
-        <Link to="/login">Log In</Link>
-        <Link to="/createpost">Create Post</Link>
+        {/* <Link class="link" to="/profile">
+          Profile
+        </Link> */}
+        <Link class="link" to="/register">
+          Register
+        </Link>
+        <Link class="link" to="/login">
+          Log In
+        </Link>
+        <Link class="link" to="/logout">
+          Log Out
+        </Link>
+        <Link class="link" to="/createpost">
+          Create Post
+        </Link>
       </nav>
     </div>
   );

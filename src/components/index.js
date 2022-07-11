@@ -9,3 +9,4 @@ export { default as DeletePost } from "./DeletePost";
 export { default as Messages } from "./Messages";
 export { default as EditPost } from "./EditPost";
 export { default as SendMessage } from "./SendMessage";
+export { default as SearchBar } from "./SearchBar";

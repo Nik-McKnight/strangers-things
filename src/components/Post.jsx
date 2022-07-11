@@ -3,11 +3,12 @@ import DeletePost from "./DeletePost";
 import Messages from "./Messages";
 import EditPost from "./EditPost";
 import SendMessage from "./SendMessage";
+import "./style.css";
 
 export default function Post({ token, post, postList, setPostList }) {
   // console.log("Post inside of the post component: ", post);
   return (
-    <div>
+    <div class="post">
       <ul>
         <li>Title: {post.title}</li>
         <li>Price: {post.price}</li>

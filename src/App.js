@@ -41,7 +41,7 @@ export default function App() {
   // }, [localStorageToken]);
 
   return (
-    <div>
+    <div class="app">
       <NavBar />
       <Routes>
         <Route

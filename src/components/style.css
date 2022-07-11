@@ -1,0 +1,55 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    background-color: #97959e;
+}
+
+
+.app {
+    display: flex;
+    flex-direction: column;
+    background-color: #97959e;
+    height: 100%
+}
+
+.post {
+    background-color: #7395ae;
+    margin: 20px;
+    padding: 20px;
+}
+
+.button {
+    background-color: #7395ae;
+}
+
+nav {
+    display: flex;
+    justify-content: space-around;
+    padding: 8px 0 8px 0;
+}
+
+.link {
+    color:navy
+}
+
+.createPost {
+    padding:5px;
+    background-color: #7395ae;
+    display: flex;
+    justify-content: space-around;}
+
+.searchBar{
+    padding: 5px 5px 0 5px;
+    background-color: #7395ae;
+    display:flex;
+}
+
+input {
+}
+
+button {
+}

@@ -1,6 +1,6 @@
 import { fetchAllPosts } from "api/post";
 import { fetchMe } from "api/user";
-import { Post, CreatePost, EditPost } from "components";
+import { Post, CreatePost, SearchBar } from "components";
 import React, { useEffect, useState } from "react";
 
 export default function Posts({ token, postList, setPostList }) {
@@ -10,15 +10,17 @@ export default function Posts({ token, postList, setPostList }) {
   const [filteredPosts, setFilteredPosts] = useState([]);
   const [postsToDisplay, setPostsToDisplay] = useState([]);
 
+  const getAllPosts = async () => {
+    const results = await fetchAllPosts(token);
+    setPostList(results.data.posts);
+    setPostsToDisplay(searchTerm.length > 0 ? filteredPosts : postList);
+    //setPostsToDisplay(postList);
+    console.log(postsToDisplay);
+  };
+
   useEffect(() => {
-    const getAllPosts = async () => {
-      const results = await fetchAllPosts(token);
-      setPostList(results.data.posts);
-      setPostsToDisplay(searchTerm.length > 0 ? filteredPosts : postList);
-      //setPostsToDisplay(postList);
-      console.log(postsToDisplay);
-    };
     getAllPosts();
+    console.log("running");
   }, [filteredPosts]);
 
   function checkPost(post, text) {
@@ -51,8 +53,14 @@ export default function Posts({ token, postList, setPostList }) {
 
   return (
     <div>
-      <CreatePost postList={postList} setPostList={setPostList} token={token} />
+      {/* <SearchBar
+        postList={postList}
+        searchTerm={searchTerm}
+        setSearchTerm={setSearchTerm}
+        filterPosts={filterPosts}
+      ></SearchBar> */}
       <form
+        class="searchBar"
         onSubmit={(e) => {
           e.preventDefault();
           filterPosts(postList, searchTerm);
@@ -66,6 +74,12 @@ export default function Posts({ token, postList, setPostList }) {
         />
         <button type="submit">Search</button>
       </form>
+      <CreatePost
+        postList={postList}
+        setPostList={setPostList}
+        token={token}
+        filterPosts={filterPosts}
+      />
       {postsToDisplay.map((post) => {
         return (
           <div>
